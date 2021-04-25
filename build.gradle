@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'me.itzblacky'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {url 'https://jitpack.io/'}
+}
+ext{
+    mindustryVersion = 'v126'
+    coreVersion = '01df46e98f'
+}
+dependencies{
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compile "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    compile "com.github.ItzBlacky:Mindustry-ItzCore:$coreVersion"
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.28'
+}
+
+jar {
+    archiveFileName = "${project.archivesBaseName}.jar"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    from(rootDir) {
+        include "plugin.json"
+    }
+}
