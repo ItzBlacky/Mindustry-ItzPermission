@@ -17,8 +17,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import static me.itzblacky.ItzPermission.Utils.FileUtils.copy;
 import static me.itzblacky.ItzPermission.Utils.FileUtils.loadYaml;
-import static mindustry.io.JsonIO.copy;
 
 public class ItzPermission extends Plugin implements Permission  {
 
