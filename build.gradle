@@ -15,8 +15,8 @@ ext{
 }
 dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
-    compile "com.github.Anuken.Mindustry:core:$mindustryVersion"
-    compile "com.github.ItzBlacky:Mindustry-ItzCore:$coreVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+    compileOnly "com.github.ItzBlacky:Mindustry-ItzCore:$coreVersion"
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.28'
 }
 
