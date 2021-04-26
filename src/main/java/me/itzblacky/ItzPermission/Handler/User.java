@@ -21,6 +21,9 @@ public class User implements IUser {
         this.group = group;
         this.permissions = permissions;
     }
+    public User() {
+
+    }
 
     @Override
     public void setGroup(IGroup group) {

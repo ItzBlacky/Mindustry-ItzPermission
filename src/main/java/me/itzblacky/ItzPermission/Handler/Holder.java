@@ -7,24 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Holder {
-    private Group defaultGroup;
+
 
     private List<User> users;
     private List<Group> groups;
 
-    public Holder() {
-        this.users = new ArrayList<>();
-        this.groups = new ArrayList<>();
-        groups.add(new Group("Group1", 1));
-        System.out.println(groups.get(0).getName());
-        groups.add(new Group("Group2", 2));
-        groups.add(new Group("Group3", 3));
-        groups.add(new Group("Group4", 4));
-        users.add(new User("uuid1", groups.get(0)));
-        users.add(new User("uuid2", groups.get(1)));
-        users.add(new User("uuid3", groups.get(2)));
-        users.add(new User("uuid4", groups.get(3)));
-    }
+    private Group defaultGroup;
+
 
     public List<IUser> getUsers() {
         return new ArrayList<>(users);

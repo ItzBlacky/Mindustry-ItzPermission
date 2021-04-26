@@ -2,6 +2,7 @@ package me.itzblacky.ItzPermission.Utils;
 
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
+import org.yaml.snakeyaml.introspector.BeanAccess;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,19 +30,22 @@ public class FileUtils {
         return success;
     }
 
-    public static <T> T loadYaml(String path, Class<T> toCast) {
+    public static <T> T loadYaml(String yamlString, Class<T> toCast) {
+        Yaml yaml = new Yaml(new Constructor(toCast));
+        return yaml.load(yamlString);
+    }
+
+    public static <T> T loadYaml(File file, Class<T> toCast) {
         T config = null;
         try {
-            InputStream stream = new FileInputStream(path);
+            InputStream stream = new FileInputStream(file);
             Yaml yaml = new Yaml(new Constructor(toCast));
+            yaml.setBeanAccess(BeanAccess.FIELD);
             config = yaml.load(stream);
             stream.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return config;
-    }
-    public static <T> T loadYaml(File file, Class<T> toCast) {
-        return loadYaml(file.getAbsolutePath(), toCast);
     }
 }

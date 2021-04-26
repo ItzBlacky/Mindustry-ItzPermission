@@ -10,7 +10,6 @@ public class Group implements IGroup {
     private int id;
     private List<String> permissions;
     private IGroup subGroup;
-    private boolean isDefault;
 
     public Group(String name, int id) {
         this(name, id, new ArrayList<>(), null);
@@ -20,7 +19,9 @@ public class Group implements IGroup {
         this.id = id;
         this.permissions = permissions;
         this.subGroup = subGroup;
-        this.isDefault = false;
+    }
+    public Group() {
+
     }
 
     @Override

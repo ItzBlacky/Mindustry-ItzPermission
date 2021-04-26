@@ -24,6 +24,7 @@ public class ItzPermission extends Plugin implements Permission  {
 
     private Holder holder;
 
+
     public ItzPermission() {
         loadHolder();
     }
@@ -75,9 +76,9 @@ public class ItzPermission extends Plugin implements Permission  {
     public void save() {
         Yaml yaml = new Yaml(new Constructor(Holder.class));
         yaml.setBeanAccess(BeanAccess.FIELD);
-        File jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").getPath()).getParentFile().getParentFile().getParentFile();
+        File yamlFile = new File(Vars.modDirectory.absolutePath() + "/ItzPermission/Permissions.yml");
         try {
-            FileWriter writer = new FileWriter(jarDir.getPath() + "/output.yml");
+            FileWriter writer = new FileWriter(yamlFile);
             writer.write(yaml.dumpAs(holder, Tag.MAP, null));
             writer.close();
         } catch(IOException e) {
